@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+//import de estilos
+import "./index.css";
+import "./styles/navbar.css";
+//imports para bootstrap
+
+import "jquery";
+
+import "../node_modules/popper.js/dist/umd/popper";
+import "../node_modules/bootstrap/dist/js/bootstrap";
+import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
+//import { Padre } from "./components/padre";
+import { NavBar } from "./components/navbar";
+import { MainContent } from "./components/maincontent";
+import { Children } from "./children";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar />
+      <Children />
+    </>
   );
 }
-
 export default App;
