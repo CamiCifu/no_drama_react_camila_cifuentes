@@ -26,6 +26,13 @@ export const NavBar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+          <button>
+            <img
+              src="carrito.png"
+              alt=""
+              className="d-inline-block align-text-top justify-content-end"
+            ></img>
+          </button>
 
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
@@ -43,49 +50,8 @@ export const NavBar = () => {
               </a>
             </div>
           </div>
-          <button>
-            <img
-              src="carrito.png"
-              alt=""
-              className="d-inline-block align-text-top justify-content-end"
-            ></img>
-          </button>
         </div>
       </nav>
     </>
   );
 };
-
-/*
-
-export const NavBar = () => {
-  return (
-    <>
-      <nav className="navbar navbar-fixed-top navbar-dark navbar-expand-lg">
-        < className="container-fluid">
-            <a className="navbar-brand"  href="index.html">
-              <i className="bi bi-balloon text-white fa-lg mx-2"></i>
-              <span className="fw-bolder"> No Drama</span>
-            </a>
-            <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navMenu">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse justify-content-end" id="navMenu">
-            <ul className="navbar-nav">
-                <li className="nav-item fw-bolder px-2" ><a className="nav-link"  href="index.html">Menu</a></li>
-                <li className="nav-item fw-bolder px-2"  ><a className="nav-link" href="news.html">News</a></li>
-                <li className="nav-item fw-bolder px-2"  ><a className="nav-link active" href="articles.html">Articles</a></li>
-                <li className="nav-item fw-bolder px-2" ><a className="nav-link" href="projects.html">Projects</a></li>
-                <li className="nav-item fw-bolder px-2" ><a className="nav-link" href="contact.html">Contact</a></li>
-              </ul>
-          </div>
-          </
-      </nav>
-    </>
-  );
-};
-*/
