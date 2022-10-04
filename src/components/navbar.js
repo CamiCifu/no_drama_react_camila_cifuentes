@@ -1,5 +1,4 @@
-//revisar para que es este import
-//import React from "react";
+import { CartWidget } from "./CartWidget";
 
 export const NavBar = () => {
   return (
@@ -26,13 +25,8 @@ export const NavBar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <button>
-            <img
-              src="carrito.png"
-              alt=""
-              className="d-inline-block align-text-top justify-content-end"
-            ></img>
-          </button>
+
+          <CartWidget />
 
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
