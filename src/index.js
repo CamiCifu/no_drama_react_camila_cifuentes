@@ -10,7 +10,7 @@ import "../node_modules/bootstrap/dist/js/bootstrap";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 //import de estilos
 import "./index.css";
-import "./styles/navbar.css";
+import "./components/NavBar/NavBar.css";
 //import de js principal llamado App
 import App from "./App";
 

@@ -1,4 +1,6 @@
-import { CartWidget } from "./CartWidget";
+import React from "react";
+
+import { CartWidget } from "../CartWidget";
 
 export const NavBar = () => {
   return (
@@ -26,24 +28,24 @@ export const NavBar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <CartWidget />
-
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
               <a className="nav-link active" aria-current="page" href="/#">
-                Home
+                Remeras
               </a>
               <a className="nav-link" href="/#">
-                Merchandise
+                Mochilas
               </a>
               <a className="nav-link" href="/#">
-                Articles
+                Buzos
               </a>
               <a className="nav-link" href="/#">
-                News
+                Otros
               </a>
             </div>
           </div>
+
+          <CartWidget />
         </div>
       </nav>
     </>
