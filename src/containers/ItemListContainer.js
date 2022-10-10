@@ -5,11 +5,12 @@ import { gFetch } from "../helpers/gFetch";
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState([true]);
   useEffect(() => {
     gFetch()
       .then((respSgte) => setProductos(respSgte))
       .catch((err) => console.log(err))
-      .finally(() => console.log("Finalizo el proceso"));
+      .finally(() => setLoading(false));
   }, []);
 
   console.log(productos);
@@ -47,11 +48,55 @@ const ItemListContainer = () => {
       <div> {fecha}</div>
       <button onClick={handleClick}>Click</button>
       <button onClick={() => setBool(!bool)}>Bool</button>
-      {productos.map((producto) => (
-        <li key={producto.id}> {producto.name} </li>
-      ))}
+      {loading ? (
+        <h2> Cargando productos ...</h2>
+      ) : (
+        productos.map((producto) => (
+          <div
+            key={producto.id}
+            style={{ marginLeft: 100 }}
+            className="col-md-3"
+          >
+            <div className="card w-100 mt-5">
+              <div className="card-header">
+                {`${producto.nombre} - ${producto.categoria}`}
+              </div>
+              <div className="card-body">
+                <img src={producto.foto} alt="" className="w-50" />
+                {producto.precio}
+              </div>
+              <div className="card-footer">
+                <button className="btn btn-outline-primary btn-black">
+                  detalle del producto
+                </button>
+              </div>
+            </div>
+          </div>
+        ))
+      )}
     </>
   );
 };
 
 export default ItemListContainer;
+
+// Primer ejemplo de card agarrando info de array de objetos
+/*
+  return (
+    <>
+      <MainContent titulo={"Acá ira el contenido"}></MainContent>
+      <div> {cont}</div>
+      <div> {fecha}</div>
+      <button onClick={handleClick}>Click</button>
+      <button onClick={() => setBool(!bool)}>Bool</button>
+      {loading ? (
+        <h2> Cargando productos ...</h2>
+      ) : (
+        productos.map((producto) => (
+          <li key={producto.id}> {producto.name} </li>
+        ))
+      )}
+    </>
+  );
+};
+*/
