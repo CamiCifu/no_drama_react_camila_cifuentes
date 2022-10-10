@@ -1,4 +1,5 @@
-export const CartWidget = () => {
+import React from "react";
+const CartWidget = () => {
   return (
     <button>
       <img
@@ -9,3 +10,4 @@ export const CartWidget = () => {
     </button>
   );
 };
+export default CartWidget;
