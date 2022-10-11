@@ -2,12 +2,14 @@ import React from "react";
 
 const ItemList = ({ productos }) => {
   console.log(productos);
-  console.log({ productos });
+  console.log(productos.map((producto) => producto.categoria));
 
   return (
-    <>
-      <div>Hola</div>
-    </>
+    <div>
+      {productos.map((producto) => (
+        <div key={producto.id}>{producto.nombre}</div>
+      ))}
+    </div>
   );
 };
 
