@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { MainContent } from "../MainContent.js";
 import { gFetch } from "../../helpers/gFetch";
+import ItemList from "../ItemList/ItemList.js";
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
@@ -51,28 +52,7 @@ const ItemListContainer = () => {
       {loading ? (
         <h2> Cargando productos ...</h2>
       ) : (
-        productos.map((producto) => (
-          <div
-            key={producto.id}
-            style={{ marginLeft: 100 }}
-            className="col-md-3"
-          >
-            <div className="card w-100 mt-5">
-              <div className="card-header">
-                {`${producto.nombre} - ${producto.categoria}`}
-              </div>
-              <div className="card-body">
-                <img src={producto.foto} alt="" className="w-50" />
-                {producto.precio}
-              </div>
-              <div className="card-footer">
-                <button className="btn btn-outline-primary btn-black">
-                  detalle del producto
-                </button>
-              </div>
-            </div>
-          </div>
-        ))
+        <ItemList productos={productos}></ItemList>
       )}
     </>
   );
