@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { MainContent } from "../MainContent.js";
-import { gFetch } from "../../helpers/gFetch";
-import ItemList from "../ItemList/ItemList.js";
+import { MainContent } from "../../MainContent.js";
+import { gFetch } from "../../../helpers/gFetch";
+import ItemList from "../../ItemList/ItemList.js";
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);

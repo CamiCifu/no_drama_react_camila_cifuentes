@@ -1,6 +1,6 @@
 import React from "react";
 
-import CartWidget from "../CartWidget";
+import CartWidget from "../CarWidget/CartWidget";
 //import Container from "react-bootstrap/Container";
 //import Nav from "react-bootstrap/Nav";
 //import Navbar from "react-bootstrap/Navbar";
@@ -35,16 +35,10 @@ export const NavBar = () => {
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
               <a className="nav-link active" aria-current="page" href="/#">
-                Remeras
+                Camperas
               </a>
               <a className="nav-link" href="/#">
                 Mochilas
-              </a>
-              <a className="nav-link" href="/#">
-                Buzos
-              </a>
-              <a className="nav-link" href="/#">
-                Otros
               </a>
             </div>
           </div>
