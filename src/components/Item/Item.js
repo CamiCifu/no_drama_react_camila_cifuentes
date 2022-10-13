@@ -1,26 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Item = ({ key, nombre, categoria, foto, precio }) => {
+const Item = ({ producto }) => {
   return (
-    <>
-      <div key={key} style={{ marginLeft: 100 }} className="col-md-3">
+    <Link to={`/detalle/ ${producto.id}`}>
+      <div key={producto.id} style={{ marginLeft: 100 }} className="col-md-3">
         <div className="card w-100 mt-5">
-          <div className="card-header">{`${nombre} - ${categoria}`}</div>
+          <div className="card-header">{`${producto.nombre} - ${producto.category}`}</div>
           <div className="card-body">
-            <img src={foto} alt="" className="w-50" />
-            {precio}
+            <img src={producto.foto} alt="" className="w-50" />
+            {producto.precio}
           </div>
-          <div className="card-footer">
-            <button className="btn btn-outline-primary btn-black">
-              detalle del producto
-            </button>
-          </div>
+          <div className="card-footer"></div>
         </div>
       </div>
-    </>
+    </Link>
   );
 };
-
 export default Item;
 
 /* {productos.map => (producto =>

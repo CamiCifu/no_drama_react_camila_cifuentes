@@ -1,13 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 const CartWidget = () => {
   return (
-    <button>
+    <Link to="/cart">
       <img
         src="carrito.png"
         alt=""
         className="d-inline-block align-text-top justify-content-end"
       ></img>
-    </button>
+    </Link>
   );
 };
 export default CartWidget;

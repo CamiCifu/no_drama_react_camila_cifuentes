@@ -3,16 +3,30 @@ import { useState, useEffect } from "react";
 import { MainContent } from "../../MainContent.js";
 import { gFetch } from "../../../helpers/gFetch";
 import ItemList from "../../ItemList/ItemList.js";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState([true]);
+  const { idCategory } = useParams();
+  console.log(idCategory);
   useEffect(() => {
-    gFetch()
-      .then((respSgte) => setProductos(respSgte))
-      .catch((err) => console.log(err))
-      .finally(() => setLoading(false));
-  }, []);
+    if (idCategory) {
+      gFetch()
+        .then((respSgte) =>
+          setProductos(
+            respSgte.filter((producto) => producto.category === idCategory)
+          )
+        )
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false));
+    } else {
+      gFetch()
+        .then((respSgte) => setProductos(respSgte))
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false));
+    }
+  }, [idCategory]);
 
   console.log(productos);
   //declaro hooks para tener estado inicial y luego actualización, concepto re-render
