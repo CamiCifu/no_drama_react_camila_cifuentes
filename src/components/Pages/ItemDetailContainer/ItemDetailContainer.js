@@ -4,29 +4,30 @@ import { gFetch } from "../../../helpers/gFetch";
 import ItemDetail from "../../ItemDetail/ItemDetail";
 
 const ItemDetailContainer = () => {
-  const [productos, setProductos] = useState([]);
-
+  const [productos, setProducto] = useState([]);
   const { idProducto } = useParams();
+
   console.log(idProducto);
+
   useEffect(() => {
     if (idProducto) {
       gFetch()
         .then((respSgte) =>
-          setProductos(
-            respSgte.filter((producto) => producto.id === idProducto)
-          )
+          setProducto(respSgte.find((producto) => producto.id === idProducto))
         )
         .catch((err) => console.log(err));
     } else {
       gFetch()
-        .then((respSgte) => setProductos(respSgte))
+        .then((respSgte) => setProducto(respSgte))
         .catch((err) => console.log(err));
     }
   }, [idProducto]);
 
+  console.log(productos);
+
   return (
     <>
-      <ItemDetail keyProducto={idProducto} productos={productos}></ItemDetail>
+      <ItemDetail producto={productos}></ItemDetail>
     </>
   );
 };

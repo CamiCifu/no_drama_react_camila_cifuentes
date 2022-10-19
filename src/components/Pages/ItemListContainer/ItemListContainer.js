@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { MainContent } from "../../MainContent.js";
+//import { MainContent } from "../../MainContent.js";
 import { gFetch } from "../../../helpers/gFetch";
 import ItemList from "../../ItemList/ItemList.js";
 import { useParams } from "react-router-dom";
@@ -58,7 +58,7 @@ const ItemListContainer = () => {
 
   return (
     <>
-      <MainContent titulo={"Acá ira el contenido"}></MainContent>
+      {/*<MainContent titulo={"Acá ira el contenido"}></MainContent>*/}
       <div> {cont}</div>
       <div> {fecha}</div>
       <button onClick={handleClick}>Click</button>
