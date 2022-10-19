@@ -1,15 +1,17 @@
 import React from "react";
+import ItemCount from "../ItemCount/ItemCount";
 
-const ItemDetail = ({ productoSeleccionado }) => {
-  console.log(productoSeleccionado);
+const ItemDetail = ({ producto }) => {
+  console.log(producto);
   return;
   /*
     <div className="row">
       <h1>Detalle del Item</h1>
       <div className="col-6">
-        <p>{productoSeleccionado.nombre}</p>
-        <p>{productoSeleccionado.precio}</p>
-        <p>{productoSeleccionado.stock}</p>
+        <p>{producto.nombre}</p>
+        <p>{producto.precio}</p>
+        <p>{producto.stock}</p>
+        <ItemCount></ItemCount>
       </div>
     </div>
     */
