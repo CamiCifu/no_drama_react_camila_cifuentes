@@ -15,7 +15,7 @@ const productos = [
     descripcion: "nueva temporada, campera de nieve,talle S",
     category: "camperas",
     foto:
-      "https://catalogo.ar.latampass.latam.com/media/catalog/product/cache/d18cb01b41c18fc26e1046af99e0e2f4/l/e/ledesl0016_b.jpg",
+      "https://universoventura.vteximg.com.br/arquivos/ids/178301-500-500/91831_MNA8_WOODSEY1.jpg?v=636947546673530000",
     stock: 20,
     precio: 15000,
   },
@@ -24,7 +24,8 @@ const productos = [
     nombre: "mochila negra",
     descripcion: "nueva temporada,mochila para el colegio",
     category: "mochilas",
-    foto: "",
+    foto:
+      "https://catalogo.ar.latampass.latam.com/media/catalog/product/cache/d18cb01b41c18fc26e1046af99e0e2f4/l/e/ledesl0016_b.jpg",
     stock: 20,
     precio: 8000,
   },
@@ -33,7 +34,8 @@ const productos = [
     nombre: "mochila roja",
     descripcion: "nueva temporada, mochila para viajes",
     category: "mochilas",
-    foto: "",
+    foto:
+      "https://http2.mlstatic.com/D_NQ_NP_2X_909767-MLA47933856644_102021-F.webp",
     stock: 20,
     precio: 7000,
   },

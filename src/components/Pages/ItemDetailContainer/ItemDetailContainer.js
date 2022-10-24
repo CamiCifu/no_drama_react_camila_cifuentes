@@ -11,7 +11,7 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     gFetch(idHola)
       .then((respSgte) =>
-        setProducto(respSgte.find((producto) => producto.id == idHola))
+        setProducto(respSgte.find((producto) => producto.id === idHola))
       )
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
