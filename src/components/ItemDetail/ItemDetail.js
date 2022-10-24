@@ -3,8 +3,7 @@ import ItemCount from "../ItemCount/ItemCount";
 
 const ItemDetail = ({ producto }) => {
   console.log(producto);
-  return;
-  /*
+  return (
     <div className="row">
       <h1>Detalle del Item</h1>
       <div className="col-6">
@@ -14,7 +13,7 @@ const ItemDetail = ({ producto }) => {
         <ItemCount></ItemCount>
       </div>
     </div>
-    */
+  );
 };
 
 export default ItemDetail;

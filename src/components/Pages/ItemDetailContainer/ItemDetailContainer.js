@@ -4,32 +4,58 @@ import { gFetch } from "../../../helpers/gFetch";
 import ItemDetail from "../../ItemDetail/ItemDetail";
 
 const ItemDetailContainer = () => {
-  const [productos, setProducto] = useState([]);
-  const { idProducto } = useParams();
-
-  console.log(idProducto);
-
+  const [producto, setProducto] = useState({});
+  const [loading, setLoading] = useState(true);
+  const { idHola } = useParams();
+  console.log(idHola);
   useEffect(() => {
-    if (idProducto) {
-      gFetch()
-        .then((respSgte) =>
-          setProducto(respSgte.find((producto) => producto.id === idProducto))
-        )
-        .catch((err) => console.log(err));
-    } else {
-      gFetch()
-        .then((respSgte) => setProducto(respSgte))
-        .catch((err) => console.log(err));
-    }
-  }, [idProducto]);
+    gFetch(idHola)
+      .then((respSgte) =>
+        setProducto(respSgte.find((producto) => producto.id == idHola))
+      )
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
+  }, [idHola]);
 
-  console.log(productos);
+  console.log(producto);
+  console.log(typeof producto);
 
   return (
     <>
-      <ItemDetail producto={productos}></ItemDetail>
+      {loading ? (
+        <h2> Cargando producto ...</h2>
+      ) : (
+        <ItemDetail producto={producto}></ItemDetail>
+      )}
     </>
   );
 };
 
 export default ItemDetailContainer;
+
+/*
+useEffect(() => {
+  if (idProducto) {
+    gFetch()
+      .then((respSgte) =>
+        setProductos(
+          respSgte.filter((producto) => producto.id === idProducto)
+        )
+      )
+      .catch((err) => console.log(err));
+  } else {
+    gFetch()
+      .then((respSgte) => setProductos(respSgte))
+      .catch((err) => console.log(err));
+  }
+}, [idProducto]);
+
+console.log(productos);
+
+return (
+  <>
+    <ItemDetail producto={producto.id}></ItemDetail>
+  </>
+);
+};
+*/

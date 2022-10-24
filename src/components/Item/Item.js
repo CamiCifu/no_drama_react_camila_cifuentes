@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Item = ({ producto }) => {
   return (
-    <Link to={`/detalle/ ${producto.id}`}>
+    <Link to={`/detalle/${producto.id}`}>
       <div key={producto.id} style={{ marginLeft: 100 }} className="col-md-3">
         <div className="card w-100 mt-5">
           <div className="card-header">{`${producto.nombre} - ${producto.category}`}</div>

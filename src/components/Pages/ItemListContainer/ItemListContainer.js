@@ -6,8 +6,8 @@ import ItemList from "../../ItemList/ItemList.js";
 import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
-  const [productos, setProductos] = useState([]);
-  const [loading, setLoading] = useState([true]);
+  const [productos, setProductos] = useState({});
+  const [loading, setLoading] = useState(true);
   const { idCategory } = useParams();
   console.log(idCategory);
   useEffect(() => {
