@@ -7,16 +7,19 @@ import CartWidget from "../CartWidget/CartWidget";
 //import Navbar from "react-bootstrap/Navbar";
 //import NavDropdown from "react-bootstrap/NavDropdown";
 
+//imporación de estilos
+import "../NavBar/NavBar.css";
+
 export const NavBar = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-style">
         <div className="container-fluid">
-          <Link to="/">
+          <Link to="/" className="text-white">
             <img
               src="carablanca.png"
               alt=""
-              className="d-inline-block align-text-top"
+              className="d-inline-block align-middle"
             ></img>
             No Drama
           </Link>
@@ -34,11 +37,22 @@ export const NavBar = () => {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-              <Link to="/category/camperas"> Camperas </Link>
-              <Link to="/category/mochilas"> Mochilas</Link>
-            </div>
+            <ul className="navbar-nav text-white">
+              <li>
+                <Link to="/category/camperas" className="text-white">
+                  {" "}
+                  Camperas{" "}
+                </Link>
+              </li>
+              <li>
+                <Link to="/category/mochilas" className="text-white">
+                  {" "}
+                  Mochilas
+                </Link>
+              </li>
+            </ul>
           </div>
+
           <CartWidget />
         </div>
       </nav>

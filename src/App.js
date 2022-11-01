@@ -7,7 +7,8 @@ import ItemListContainer from "./components/Pages/ItemListContainer/ItemListCont
 import ItemDetailContainer from "./components/Pages/ItemDetailContainer/ItemDetailContainer";
 import CarritoPage from "./components/Pages/CarritoPage/CarritoPage";
 import NotFound from "./components/NotFound/NotFound";
-
+//Importacion de context
+import CartContextProvider from "./Context/CartContext";
 //import de estilos
 import "./index.css";
 import "./components/NavBar/NavBar.css";
@@ -21,18 +22,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<ItemListContainer />} />
-        <Route path="/category/:idCategory" element={<ItemListContainer />} />
-        <Route path="/detalle/:idHola" element={<ItemDetailContainer />} />
-        <Route path="/cart" element={<CarritoPage />} />
-        <Route path="/404" element={<NotFound />} />
-
-        <Route path="*" element={<Navigate to="/404" />} />
-      </Routes>
-    </BrowserRouter>
+    <CartContextProvider>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/category/:idCategory" element={<ItemListContainer />} />
+          <Route path="/detalle/:idHola" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<CarritoPage />} />
+          <Route path="/404" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="/404" />} />
+        </Routes>
+      </BrowserRouter>
+    </CartContextProvider>
   );
 }
 export default App;
