@@ -4,21 +4,18 @@ import { useState } from "react";
 const ItemCount = ({ stock, init, onAdd }) => {
   const [count, setCount] = useState(init);
 
-  //agregar producto
   const handleAdd = () => {
     if (count < stock) {
       setCount(count + 1);
     }
   };
 
-  //sacar producto
   const handleRemove = () => {
     if (count > init) {
       setCount(count - 1);
     }
   };
 
-  //agregar al carrito
   const handleOnAdd = () => {
     onAdd(count);
   };

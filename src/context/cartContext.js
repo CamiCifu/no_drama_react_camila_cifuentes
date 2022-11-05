@@ -38,7 +38,7 @@ const CartContextProvider = ({ children }) => {
 
   //funcion de cantidad Total
   const cantidadTotal = () => {
-    return cartList.reduce((acum, prod) => (acum += prod.cantidad), 0); // acum = acum + cantidad
+    return cartList.reduce((acum, prod) => (acum += prod.cantidad), 0);
   };
 
   // funcion para remove item

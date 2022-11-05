@@ -47,8 +47,6 @@ const CarritoPage = () => {
   };
   console.log(dataForm);
 
-  // que si no hay nada aprezca el caartel "compra algo" remove item y revision si no hay nada, si una  parte del form esta vacia no debe dejar que se envie, tambien si cantidad total es igual a cero
-
   return (
     <div>
       <h1> ¡Carrito de compras!</h1>
@@ -99,10 +97,7 @@ const CarritoPage = () => {
             {dataForm.nombre === "" ||
             dataForm.telefono === "" ||
             dataForm.email === "" ? (
-              <h3>
-                {" "}
-                Por favor complete todos los datos para continuar con la compra
-              </h3>
+              <h3> Por favor los datos para continuar con la compra</h3>
             ) : (
               <button type="submit">Generar orden</button>
             )}
