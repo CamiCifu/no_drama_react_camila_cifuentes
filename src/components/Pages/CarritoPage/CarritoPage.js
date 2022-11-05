@@ -9,7 +9,7 @@ const CarritoPage = () => {
     email: "",
   });
 
-  const { cartList, vaciarCarrito, precioTotal } = useCartContext();
+  const { cartList, vaciarCarrito, precioTotal, removeItem } = useCartContext();
 
   const generarOrden = async (e) => {
     e.preventDefault();
@@ -46,7 +46,7 @@ const CarritoPage = () => {
   };
   console.log(dataForm);
 
-  // falta is in cart y remove item y revision si no hay nada, si una  parte del form esta vacia no debe dejar que se envie, tambien si cantidad total es igual a cero
+  // agregar remove item, que si no hay nada aprezca el caartel "compra algo" remove item y revision si no hay nada, si una  parte del form esta vacia no debe dejar que se envie, tambien si cantidad total es igual a cero
 
   return (
     <div>
@@ -57,6 +57,10 @@ const CarritoPage = () => {
             {" "}
             nombre: {producto.nombre} categoría:{producto.categoria} precio:{" "}
             {producto.precio} Cant: {producto.cantidad}{" "}
+            <button onClick={() => removeItem(producto.id)}>
+              {" "}
+              Remover productos
+            </button>
           </li>
         ))}
       </ul>
