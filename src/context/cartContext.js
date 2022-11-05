@@ -10,7 +10,13 @@ const CartContextProvider = ({ children }) => {
   // funcion para agregar al carrito
 
   const addItem = (producto) => {
-    setCartList([...cartList, producto]);
+    const index = cartList.findIndex((prod) => producto.id === prod.id);
+    if (index == -1) {
+      setCartList([...cartList, producto]);
+    } else {
+      cartList[index].cantidad += producto.cantidad;
+      setCartList(...[cartList, producto]);
+    }
   };
 
   //funcion para vaciar el carrito
