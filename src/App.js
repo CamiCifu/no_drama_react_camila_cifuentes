@@ -20,7 +20,6 @@ import "../node_modules/bootstrap/dist/js/bootstrap";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 //imports para react bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
-import { RevisionCarrito } from "./components/Revisiones/Revisiones";
 
 function App() {
   return (
@@ -37,14 +36,7 @@ function App() {
             path="/detalle/:idProducto"
             element={<ItemDetailContainer />}
           />
-          <Route
-            path="/cart"
-            element={
-              <RevisionCarrito>
-                <CarritoPage />
-              </RevisionCarrito>
-            }
-          />
+          <Route path="/cart" element={<CarritoPage />} />
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" />} />
         </Routes>
