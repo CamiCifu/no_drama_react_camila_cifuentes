@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import Item from "../Item/Item";
 
 const ItemList = ({ productos }) => {
   console.log(productos);
-  console.log(productos.map((producto) => producto.category));
+  console.log(productos.map((producto) => producto.categoria));
 
   return (
     <div>

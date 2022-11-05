@@ -1,21 +1,49 @@
 import React from "react";
 import { useState, useEffect } from "react";
-//import { MainContent } from "../../MainContent.js";
 
 import ItemList from "../../ItemList/ItemList.js";
 import { useParams } from "react-router-dom";
-import { gFetch } from "../../../helpers/gFetch.js";
+//mport { gFetch } from "../../../helpers/gFetch.js";
+
+//import de firebase
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
+
 const ItemListContainer = () => {
   const [productos, setProductos] = useState({});
   const [loading, setLoading] = useState(true);
-  const { idCategory } = useParams();
-  console.log(idCategory);
+  const { idCategoria } = useParams();
+  console.log(idCategoria);
+
   useEffect(() => {
-    if (idCategory) {
+    const db = getFirestore();
+    const queryCollection = collection(db, "productos");
+    const queryFiltrada = idCategoria
+      ? query(queryCollection, where("categoria", "==", idCategoria))
+      : queryCollection;
+    console.log(idCategoria);
+    getDocs(queryFiltrada)
+      .then((resp) =>
+        setProductos(
+          resp.docs.map((producto) => ({ id: producto.id, ...producto.data() }))
+        )
+      )
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
+  }, [idCategoria]);
+  console.log(productos);
+
+  /*useEffect(() => {
+    if (idCategoria) {
       gFetch()
         .then((respSgte) =>
           setProductos(
-            respSgte.filter((producto) => producto.category === idCategory)
+            respSgte.filter((producto) => producto.category === idCategoria)
           )
         )
         .catch((err) => console.log(err))
@@ -26,7 +54,7 @@ const ItemListContainer = () => {
         .catch((err) => console.log(err))
         .finally(() => setLoading(false));
     }
-  }, [idCategory]);
+  }, [idCategoria]);*/
 
   console.log(productos);
   //declaro hooks para tener estado inicial y luego actualización, concepto re-render
@@ -58,7 +86,6 @@ const ItemListContainer = () => {
 
   return (
     <>
-      {/*<MainContent titulo={"Acá ira el contenido"}></MainContent>*/}
       {/*<div> {cont}</div>*/}
       {/*<div> {fecha}</div>*/}
       {/*<<button onClick={handleClick}>Click</button>*/}

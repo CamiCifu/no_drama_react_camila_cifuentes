@@ -7,6 +7,7 @@ import ItemListContainer from "./components/Pages/ItemListContainer/ItemListCont
 import ItemDetailContainer from "./components/Pages/ItemDetailContainer/ItemDetailContainer";
 import CarritoPage from "./components/Pages/CarritoPage/CarritoPage";
 import NotFound from "./components/NotFound/NotFound";
+
 //Importacion de context
 import CartContextProvider from "./Context/CartContext";
 //import de estilos
@@ -19,6 +20,7 @@ import "../node_modules/bootstrap/dist/js/bootstrap";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 //imports para react bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
+import { RevisionCarrito } from "./components/Revisiones/Revisiones";
 
 function App() {
   return (
@@ -27,9 +29,22 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
-          <Route path="/category/:idCategory" element={<ItemListContainer />} />
-          <Route path="/detalle/:idHola" element={<ItemDetailContainer />} />
-          <Route path="/cart" element={<CarritoPage />} />
+          <Route
+            path="/categoria/:idCategoria"
+            element={<ItemListContainer />}
+          />
+          <Route
+            path="/detalle/:idProducto"
+            element={<ItemDetailContainer />}
+          />
+          <Route
+            path="/cart"
+            element={
+              <RevisionCarrito>
+                <CarritoPage />
+              </RevisionCarrito>
+            }
+          />
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" />} />
         </Routes>

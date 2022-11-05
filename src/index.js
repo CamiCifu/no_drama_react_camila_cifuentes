@@ -15,6 +15,9 @@ import "./components/NavBar/NavBar.css";
 import App from "./App";
 
 import reportWebVitals from "./reportWebVitals";
+import { firestoreInit } from "./firebase/config";
+
+firestoreInit();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);

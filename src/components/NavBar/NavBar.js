@@ -39,13 +39,13 @@ export const NavBar = () => {
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul className="navbar-nav text-white">
               <li>
-                <Link to="/category/camperas" className="text-white">
+                <Link to="/categoria/camperas" className="text-white">
                   {" "}
                   Camperas{" "}
                 </Link>
               </li>
               <li>
-                <Link to="/category/mochilas" className="text-white">
+                <Link to="/categoria/mochilas" className="text-white">
                   {" "}
                   Mochilas
                 </Link>

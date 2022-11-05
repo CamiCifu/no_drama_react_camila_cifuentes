@@ -13,8 +13,45 @@ const CartContextProvider = ({ children }) => {
     setCartList([...cartList, producto]);
   };
 
+  //funcion para vaciar el carrito
+  const vaciarCarrito = () => {
+    setCartList([]);
+  };
+
+  //funcion para ver si el producto ya esta en el carrito
+  const isInCart = (id) => {
+    return cartList.some((item) => item.id === id);
+  };
+  //funcion de precio Total
+  const precioTotal = () => {
+    return cartList.reduce(
+      (acum, prod) => acum + prod.cantidad * prod.precio,
+      0
+    );
+  };
+
+  //funcion de cantidad Total
+  const cantidadTotal = () => {
+    return cartList.reduce((acum, prod) => (acum += prod.cantidad), 0); // acum = acum + cantidad
+  };
+
+  // funcion para remove item
+  const removeItem = (id) => {
+    setCartList(cartList.filter((item) => item.id !== id));
+  };
+
   return (
-    <CartContext.Provider value={{ cartList, addItem }}>
+    <CartContext.Provider
+      value={{
+        cartList,
+        addItem,
+        vaciarCarrito,
+        isInCart,
+        precioTotal,
+        cantidadTotal,
+        removeItem,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );
