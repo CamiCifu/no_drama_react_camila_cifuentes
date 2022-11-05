@@ -11,7 +11,6 @@ const ItemDetailContainer = () => {
   const { idProducto } = useParams();
   console.log(idProducto);
 
-  //traer un producto de firebase
   useEffect(() => {
     const db = getFirestore();
     const queryDoc = doc(db, "productos", idProducto);
@@ -20,15 +19,6 @@ const ItemDetailContainer = () => {
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   }, [idProducto]);
-
-  /*useEffect(() => {
-    gFetch(idHola)
-      .then((respSgte) =>
-        setProducto(respSgte.find((producto) => producto.id === idHola))
-      )
-      .catch((err) => console.log(err))
-      .finally(() => setLoading(false));
-  }, [idHola]);*/
 
   console.log(producto);
   console.log(typeof producto);

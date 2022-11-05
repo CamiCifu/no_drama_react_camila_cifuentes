@@ -38,24 +38,6 @@ const ItemListContainer = () => {
   }, [idCategoria]);
   console.log(productos);
 
-  /*useEffect(() => {
-    if (idCategoria) {
-      gFetch()
-        .then((respSgte) =>
-          setProductos(
-            respSgte.filter((producto) => producto.category === idCategoria)
-          )
-        )
-        .catch((err) => console.log(err))
-        .finally(() => setLoading(false));
-    } else {
-      gFetch()
-        .then((respSgte) => setProductos(respSgte))
-        .catch((err) => console.log(err))
-        .finally(() => setLoading(false));
-    }
-  }, [idCategoria]);*/
-
   console.log(productos);
   //declaro hooks para tener estado inicial y luego actualización, concepto re-render
   //const [cont, setCont] = useState(0);

@@ -55,7 +55,7 @@ const CarritoPage = () => {
       {idCompra && <h2> Orden generado con éxito: {idCompra}</h2>}
       {cartList.length === 0 ? (
         <div>
-          <h2> Selecciona los productos que queres comprar!</h2>
+          <h2> En el incio podras realizar nuevas compras!</h2>
           <Link to="/"> Ir a comprar</Link>
         </div>
       ) : (
@@ -96,7 +96,16 @@ const CarritoPage = () => {
               placeholder="Email"
               onChange={handleInputChange}
             />
-            <button type="submit">Generar orden</button>
+            {dataForm.nombre === "" ||
+            dataForm.telefono === "" ||
+            dataForm.email === "" ? (
+              <h3>
+                {" "}
+                Por favor complete todos los datos para continuar con la compra
+              </h3>
+            ) : (
+              <button type="submit">Generar orden</button>
+            )}
           </form>
 
           <button onClick={vaciarCarrito}>Vaciar Carrito</button>
