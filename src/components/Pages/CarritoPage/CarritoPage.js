@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useCartContext } from "../../../Context/CartContext.js";
 
 const CarritoPage = () => {
+  const [idCompra, setIdCompra] = useState();
   const [dataForm, setDataForm] = useState({
     nombre: "",
     telefono: "",
@@ -32,7 +33,7 @@ const CarritoPage = () => {
     const db = getFirestore();
     const orders = collection(db, "orders");
     addDoc(orders, orden)
-      .then((resp) => console.log(resp))
+      .then((resp) => setIdCompra(resp.id))
       .catch((err) => console.log(err))
       .finally(() => vaciarCarrito());
   };
@@ -50,7 +51,8 @@ const CarritoPage = () => {
 
   return (
     <div>
-      <h1>CarritoPage</h1>
+      <h1> ¡Carrito de compras!</h1>
+      {idCompra && <h2> Orden generado con éxito: {idCompra}</h2>}
       <ul>
         {cartList.map((producto) => (
           <li>
