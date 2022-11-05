@@ -1,17 +1,21 @@
 import React, { memo } from "react";
 import Item from "../Item/Item";
 
-const ItemList = ({ productos }) => {
-  console.log(productos);
-  console.log(productos.map((producto) => producto.categoria));
-
+const ItemList = memo(({ productos }) => {
+  console.log("ItemList");
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+      }}
+    >
       {productos.map((producto) => (
-        <Item producto={producto} key={producto.id}></Item>
+        <Item key={producto.id} producto={producto} />
       ))}
     </div>
   );
-};
+});
 
 export default ItemList;

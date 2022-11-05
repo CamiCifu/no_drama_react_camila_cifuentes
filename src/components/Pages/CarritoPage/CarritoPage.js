@@ -1,7 +1,14 @@
-import React from "react";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
+import React, { useState } from "react";
 import { useCartContext } from "../../../Context/CartContext.js";
 
 const CarritoPage = () => {
+  const [dataForm, setDataForm] = useState({
+    nombre: "",
+    telefono: "",
+    email: "",
+  });
+
   const { cartList, vaciarCarrito, precioTotal } = useCartContext();
 
   const generarOrden = async (e) => {
@@ -9,9 +16,9 @@ const CarritoPage = () => {
     const orden = {};
 
     orden.buyer = {
-      name: "cami",
-      phone: "1234",
-      email: "camis",
+      name: dataForm.nombre,
+      phone: dataForm.telefono,
+      email: dataForm.email,
     };
 
     orden.items = cartList.map((prod) => {
@@ -21,26 +28,25 @@ const CarritoPage = () => {
 
     orden.total = precioTotal();
     console.log(orden);
-  };
-  /*
-      const db = getFirestore()
-      const orders = collection(db, 'orders')
-      addDoc(orders, orden) // setDoc(orders, obj, id)
-      .then(resp => console.log(resp))
-      .catch(err => console.log(err))
-      .finally(() => vaciarCarrito())
-     
+
+    const db = getFirestore();
+    const orders = collection(db, "orders");
+    addDoc(orders, orden)
+      .then((resp) => console.log(resp))
+      .catch((err) => console.log(err))
+      .finally(() => vaciarCarrito());
   };
 
+  //funcion para el form
   const handleInputChange = (e) => {
     setDataForm({
       ...dataForm,
       [e.target.name]: e.target.value,
     });
   };
-  console.log(dataForm);*/
+  console.log(dataForm);
 
-  // falta is in cart y remove item y revision si no hay nada
+  // falta is in cart y remove item y revision si no hay nada, si una  parte del form esta vacia no debe dejar que se envie, tambien si cantidad total es igual a cero
 
   return (
     <div>
@@ -56,27 +62,18 @@ const CarritoPage = () => {
       </ul>
       <h2>Total: {precioTotal()}</h2>
       {/* fomulario para la orden */}
-
-      <button onClick={vaciarCarrito}>Vaciar Carrito</button>
-    </div>
-  );
-};
-
-export default CarritoPage;
-
-/*
       <form onSubmit={generarOrden}>
         <input
           type="text"
-          name="name"
+          name="nombre"
           placeholder="Nombre"
-          value={dataForm.name}
+          value={dataForm.nombre}
           onChange={handleInputChange}
         />
         <input
           type="text"
-          name="phone"
-          value={dataForm.phone}
+          name="telefono"
+          value={dataForm.telefono}
           placeholder="Teléfono"
           onChange={handleInputChange}
         />
@@ -88,4 +85,11 @@ export default CarritoPage;
           onChange={handleInputChange}
         />
         <button type="submit">Generar orden</button>
-      </form>*/
+      </form>
+
+      <button onClick={vaciarCarrito}>Vaciar Carrito</button>
+    </div>
+  );
+};
+
+export default CarritoPage;
