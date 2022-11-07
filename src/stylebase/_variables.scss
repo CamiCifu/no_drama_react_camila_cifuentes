@@ -1,0 +1,33 @@
+$color--azul--claro: #a9cef4;
+$color--azul--muy--claro: #c6d9ec;
+$color--azul--oscuro: rgb(160, 184, 205);
+$color--azul---muy--oscuro: rgb(30, 66, 98);
+$color--negro: black;
+$color--blanco: white;
+$color--gris--claro: rgba(230, 230, 230, 0.93);
+$color--gris--oscuro: rgba(60, 60, 60, 0.93);
+$color--inicio: rgb(63, 67, 71);
+$color--fondo--incio: rgba(152, 147, 146, 0.516);
+$color--fondo--incio-oscuro: rgba(152, 147, 146, 0.8);
+$color--azul--oscuro--header: rgb(28, 128, 216);
+$color--gris--claro--header: rgb(93, 96, 112);
+$color--footer: rgb(38, 122, 195);
+$color--naranja--suave: rgb(251, 207, 126);
+
+/*MAP FOR FONT WEIGHTS*/
+
+$font-weights: (
+  "regularweight": 100,
+  "mediumweight": 400,
+  "boldweight": 600,
+  "veryboldweight": 800,
+);
+$font-sizes: (
+  "normalsize": 100%,
+  "mediumsize": 150%,
+  "bigsize": 200%,
+  "biggersize": 300%,
+  "hugesize": 400%,
+  "superhugesize": 900%,
+  "phonesize": 1500%,
+);

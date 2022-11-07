@@ -7,12 +7,13 @@ import CartWidget from "../CartWidget/CartWidget";
 //import Navbar from "react-bootstrap/Navbar";
 //import NavDropdown from "react-bootstrap/NavDropdown";
 
-import "../NavBar/NavBar.css";
+//import "../NavBar/NavBar.css";
+import "../NavBar/NavBar.scss";
 
 export const NavBar = () => {
   return (
-    <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-style">
+    <header>
+      <nav className="navbar navbar-expand-lg navbar-dark navbar-style">
         <div className="container-fluid">
           <Link to="/" className="text-white">
             <img
@@ -55,6 +56,6 @@ export const NavBar = () => {
           <CartWidget />
         </div>
       </nav>
-    </>
+    </header>
   );
 };
