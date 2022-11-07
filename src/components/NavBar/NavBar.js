@@ -39,13 +39,19 @@ export const NavBar = () => {
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul className="navbar-nav text-white">
               <li>
-                <Link to="/categoria/camperas" className="text-white">
+                <Link
+                  to="/categoria/camperas"
+                  className="text-white nav-item fw-bolder px-2"
+                >
                   {" "}
                   Camperas{" "}
                 </Link>
               </li>
               <li>
-                <Link to="/categoria/mochilas" className="text-white">
+                <Link
+                  to="/categoria/mochilas"
+                  className="text-white nav-item fw-bolder px-2"
+                >
                   {" "}
                   Mochilas
                 </Link>

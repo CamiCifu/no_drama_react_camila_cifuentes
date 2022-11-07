@@ -21,21 +21,24 @@ const ItemCount = ({ stock, init, onAdd }) => {
   };
 
   return (
-    <div className="mt-5">
-      <button onClick={handleAdd} className="btn btn-primary">
-        +
-      </button>
+    <div className="mt-5 text-center ">
+      <div>
+        <button onClick={handleRemove} className="btn btn-primary ms-3">
+          -
+        </button>
 
-      <label className="pl-3">{count}</label>
+        <label className="pl-3 ms-3"> {count} </label>
 
-      <button onClick={handleRemove} className="btn btn-primary">
-        -
-      </button>
-      <br />
-
-      <button className="btn btn-success" onClick={handleOnAdd}>
-        Agregar al carrito
-      </button>
+        <button onClick={handleAdd} className="btn btn-primary ms-3">
+          +
+        </button>
+        <br />
+      </div>
+      <div>
+        <button className="btn btn-success mt-3" onClick={handleOnAdd}>
+          Agregar al carrito
+        </button>
+      </div>
     </div>
   );
 };

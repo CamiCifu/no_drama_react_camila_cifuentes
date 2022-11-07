@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 import ItemCount from "../ItemCount/ItemCount";
+import "../ItemDetail/ItemDetail.scss";
 
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../Context/CartContext.js";
@@ -17,14 +18,21 @@ const ItemDetail = ({ producto }) => {
   console.log(cartList);
   return (
     <div className="row">
-      <h1>ItemDetailContainer</h1>
+      <h1 className="detalle_producto ms-5 mt-2">Detalle del producto</h1>
       <div className="col-6">
         <center>
           <img src={producto.foto} alt="" className="w-50" />
-          <p>Producto: {producto.nombre}</p>
-          <p>Precio: {producto.precio}</p>
-          <p>Stock: {producto.stock}</p>
-          <p>Descripción: {producto.descripcion}</p>
+          <p className="color_textoProducto">
+            Producto:
+            <div className="text-uppercase">{producto.nombre}</div>
+          </p>
+          <p className="color_textoProducto">Precio: $ {producto.precio}</p>
+          <p className="color_textoProducto">
+            Stock: {producto.stock} unidades
+          </p>
+          <p className="color_textoProducto">
+            Descripción: {producto.descripcion}
+          </p>
         </center>
       </div>
       <div className="col-6 mt-5">
@@ -34,10 +42,14 @@ const ItemDetail = ({ producto }) => {
           ) : (
             <div>
               <Link to="/cart">
-                <button className="btn btn-primary">Terminar Compra</button>
+                <button className="btn btn-secondary m-2">
+                  Terminar Compra
+                </button>
               </Link>
               <Link to="/">
-                <button className="btn btn-primary">Seguir Comprando</button>
+                <button className="btn btn-primary  m-2">
+                  Seguir Comprando
+                </button>
               </Link>
             </div>
           )}

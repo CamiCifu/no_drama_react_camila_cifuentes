@@ -31,3 +31,15 @@ $font-sizes: (
   "superhugesize": 900%,
   "phonesize": 1500%,
 );
+
+/*MIXIN FOR PADDING AND MARGIN*/
+
+@mixin padding_margin($padding, $margin) {
+  padding: $padding;
+  margin: $margin;
+}
+
+@mixin paddingb_marginb($paddingb, $marginb) {
+  padding-bottom: $paddingb;
+  margin-bottom: $marginb;
+}

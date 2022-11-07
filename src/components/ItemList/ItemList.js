@@ -10,6 +10,7 @@ const ItemList = memo(({ productos }) => {
         flexDirection: "row",
         flexWrap: "wrap",
       }}
+      className=" col-md-2"
     >
       {productos.map((producto) => (
         <Item key={producto.id} producto={producto} />
