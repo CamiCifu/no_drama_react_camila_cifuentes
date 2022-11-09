@@ -49,11 +49,11 @@ export const NavBar = () => {
               </li>
               <li>
                 <Link
-                  to="/categoria/mochilas"
+                  to="/categoria/camisas"
                   className="text-white nav-item fw-bolder px-2"
                 >
                   {" "}
-                  Mochilas
+                  Camisas
                 </Link>
               </li>
             </ul>
