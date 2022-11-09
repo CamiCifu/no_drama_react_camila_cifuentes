@@ -2,6 +2,7 @@ import { addDoc, collection, getFirestore } from "firebase/firestore";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../../Context/CartContext.js";
+import "../CarritoPage/CarritoPage.scss";
 
 const CarritoPage = () => {
   const [idCompra, setIdCompra] = useState();
@@ -49,7 +50,7 @@ const CarritoPage = () => {
 
   return (
     <div>
-      <h1> ¡Carrito de compras!</h1>
+      <h1> Carrito de compras</h1>
       {idCompra && <h2> Orden generado con éxito: {idCompra}</h2>}
       {cartList.length === 0 ? (
         <div>
@@ -62,16 +63,19 @@ const CarritoPage = () => {
             {cartList.map((producto) => (
               <li>
                 {" "}
-                nombre: {producto.nombre} categoría:{producto.categoria} precio:{" "}
-                {producto.precio} Cant: {producto.cantidad}{" "}
-                <button onClick={() => removeItem(producto.id)}>
+                Producto: {producto.nombre} Categoría: {producto.categoria}{" "}
+                Precio: $ {producto.precio} Cantidad: {producto.cantidad}{" "}
+                <button
+                  className="botonVaciarCarrito"
+                  onClick={() => removeItem(producto.id)}
+                >
                   {" "}
                   Remover productos
                 </button>
               </li>
             ))}
           </ul>
-          <h2>Total: {precioTotal()}</h2>
+          <h2>Total: $ {precioTotal()}</h2>
           <form onSubmit={generarOrden}>
             <input
               type="text"
