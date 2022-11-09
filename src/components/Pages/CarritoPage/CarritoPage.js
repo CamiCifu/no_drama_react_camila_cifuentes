@@ -10,6 +10,7 @@ const CarritoPage = () => {
     nombre: "",
     telefono: "",
     email: "",
+    emailValidacion: "",
   });
 
   const { cartList, vaciarCarrito, precioTotal, removeItem } = useCartContext();
@@ -22,6 +23,7 @@ const CarritoPage = () => {
       name: dataForm.nombre,
       phone: dataForm.telefono,
       email: dataForm.email,
+      emailValidacion: dataForm.emailValidacion,
     };
 
     orden.items = cartList.map((prod) => {
@@ -98,9 +100,17 @@ const CarritoPage = () => {
               placeholder="Email"
               onChange={handleInputChange}
             />
+            <input
+              type="text"
+              name="emailValidacion"
+              value={dataForm.emailValidacion}
+              placeholder="Confirmar email"
+              onChange={handleInputChange}
+            />
             {dataForm.nombre === "" ||
             dataForm.telefono === "" ||
-            dataForm.email === "" ? (
+            dataForm.email === "" ||
+            dataForm.emailValidacion != dataForm.email ? (
               <h3> Por favor los datos para continuar con la compra</h3>
             ) : (
               <button type="submit">Generar orden</button>
