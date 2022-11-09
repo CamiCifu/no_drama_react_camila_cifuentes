@@ -1,11 +1,12 @@
 @import "../../stylebase/variables.scss";
 
-.projectos__textoSpace {
+.item__textoSpace {
   padding-top: 5rem;
   @include paddingb_marginb(3rem, 5rem);
   min-height: 50vh;
   min-width: 50vh;
   display: block;
+  align-items: center;
   border: 0.1rem solid $color--gris--oscuro;
   box-shadow: 5px 5px $color--azul--claro;
   transition: transform 1s, z-index 1s, border-color 1s;
@@ -21,7 +22,7 @@
   }
 }
 
-.project__text {
+.item__text {
   padding: 1rem 0 1rem 0;
   font-size: map-get($font-sizes, normalsize);
   font-style: italic;
