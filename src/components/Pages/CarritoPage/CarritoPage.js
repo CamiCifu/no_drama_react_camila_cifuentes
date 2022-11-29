@@ -111,7 +111,11 @@ const CarritoPage = () => {
             dataForm.telefono === "" ||
             dataForm.email === "" ||
             dataForm.emailValidacion != dataForm.email ? (
-              <h3> Por favor los datos para continuar con la compra</h3>
+              <h3>
+                {" "}
+                Por favor completa correctamente los datos para continuar con la
+                compra
+              </h3>
             ) : (
               <button type="submit">Generar orden</button>
             )}
